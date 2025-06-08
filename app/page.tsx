@@ -27,25 +27,37 @@ export default function Home() {
     // @ts-ignore
     if (typeof window.gtag !== 'undefined') {
       // @ts-ignore
-      window.gtag_report_conversion('tel:+14699275990');
+      window.gtag_report_conversion_call('tel:+14699275990');
     } else {
       window.location.href = 'tel:+14699275990';
     }
   };
 
   const handleText = () => {
-    window.location.href = 'sms:+14699275990';
+    // @ts-ignore
+    if (typeof window.gtag !== 'undefined') {
+      // @ts-ignore
+      window.gtag_report_conversion_text('sms:+14699275990');
+    } else {
+      window.location.href = 'sms:+14699275990';
+    }
   };
 
   const handleEmail = () => {
-    window.location.href = 'mailto:support@lmlshops.com';
+    // @ts-ignore
+    if (typeof window.gtag !== 'undefined') {
+      // @ts-ignore
+      window.gtag_report_conversion_email('mailto:info@foodtrucktrailer.com');
+    } else {
+      window.location.href = 'mailto:info@foodtrucktrailer.com';
+    }
   };
 
   return (
     <main className="min-h-screen bg-white">
       <Script id="google-ads-conversion">
         {`
-          function gtag_report_conversion(url) {
+          function gtag_report_conversion_call(url) {
             var callback = function () {
               if (typeof(url) != 'undefined') {
                 window.location = url;
@@ -59,7 +71,39 @@ export default function Home() {
             });
             return false;
           }
+
+          function gtag_report_conversion_text(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+            };
+            window.gtag('event', 'conversion', {
+              'send_to': 'AW-11165567109/80jqCNCKrdYaEIWRlMwp',
+              'value': 1.0,
+              'currency': 'USD',
+              'event_callback': callback
+            });
+            return false;
+          }
+
+          function gtag_report_conversion_email(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+            };
+            window.gtag('event', 'conversion', {
+              'send_to': 'AW-11165567109/2UAvCJiMrdYaEIWRlMwp',
+              'value': 1.0,
+              'currency': 'USD',
+              'event_callback': callback
+            });
+            return false;
+          }
           window.handleCallClick = ${handleCallClick.toString()};
+          window.handleText = ${handleText.toString()};
+          window.handleEmail = ${handleEmail.toString()};
         `}
       </Script>
       <header className="hero">
