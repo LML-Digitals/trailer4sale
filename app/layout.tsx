@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +48,20 @@ export default function RootLayout({
         <link rel="icon" href="/logo.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffd700" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11165567109"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-11165567109');
+          `}
+        </Script>
       </head>
+      
       <body className={inter.className}>{children}</body>
     </html>
   );
