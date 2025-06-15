@@ -106,7 +106,6 @@ export default function Home() {
           window.handleEmail = ${handleEmail.toString()};
         `}
       </Script>
-      <header className="hero">
         <nav>
           <div className="container">
             <div className="logo-container">
@@ -124,7 +123,18 @@ export default function Home() {
             </div>
           </div>
         </nav>
-        <div className="hero-content">
+      
+      <div className="hero-content">
+          <div className="featured-image-card">
+            <Image
+              src="/pic1.JPG"
+              alt="Featured Food Truck Trailer"
+              width={1200}
+              height={800}
+              className="featured-image"
+              priority
+            />
+          </div>
           <h2>Fully-Equipped Food Truck Trailer For Sale in DFW - Like New!</h2>
           <p className="price">$25,000</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
@@ -152,7 +162,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </header>
+
 
       <section className="features">
         <div className="container">
