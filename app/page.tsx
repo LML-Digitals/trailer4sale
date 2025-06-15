@@ -107,7 +107,6 @@ export default function Home() {
         `}
       </Script>
         <nav>
-          <div className="container">
             <div className="logo-container">
               <Image
                 src="/logo.svg"
@@ -116,11 +115,6 @@ export default function Home() {
                 height={40}
                 className="logo"
               />
-            </div>
-            <div className="nav-links">
-              <a href="#gallery">Gallery</a>
-              <a href="#contact">Contact</a>
-            </div>
           </div>
         </nav>
       
